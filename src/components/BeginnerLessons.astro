@@ -1,0 +1,60 @@
+---
+import { Image } from 'astro:assets';
+import privateLessonImage from '../assets/beginner-private-lesson.avif';
+import groupLessonImage from '../assets/beginner-group-lesson.avif';
+---
+
+<section id="beginner-lessons">
+  <h3>Beginner Lessons</h3>
+  <p>For anyone who’s never surfed before or has only tried a few times</p>
+
+  <h4>What we will focus on</h4>
+  <ul>
+    <li>Safety basics & surf etiquette</li>
+    <li>How to paddle efficiently</li>
+    <li>How to pop up with good technique</li>
+    <li>Finding your balance & surf stance</li>
+    <li>Catching white-wash waves</li>
+    <li>First turns & basic control</li>
+    <li>Getting comfortable in the ocean</li>
+  </ul>
+  <p>Perfect if you want a fun, safe introduction to surfing!</p>
+
+  <ul>
+    <li>
+      <h4>Private — 1 on 1 session</h4>
+      <p>
+        A one-on-one session fully adapted to your level. I’ll help you build
+        confidence, improve your technique, and catch more waves.
+      </p>
+      <p>9 000 LKR</p>
+      <Image
+        src={privateLessonImage}
+        alt="Beginner surfer riding a wave, standing on the board and smiling"
+        width={300}
+      />
+    </li>
+    <li>
+      <h4>Group</h4>
+      <p>
+        Learn together in a fun and supportive setting. I’ll guide you step by
+        step so everyone feels safe and progresses at their own pace.
+      </p>
+      <ul>
+        <li>
+          <h5>Small group — 2-5 people</h5>
+          <p><strong>7 000 LKR</strong> per person</p>
+        </li>
+        <li>
+          <h5>Big group — 6+ people</h5>
+          <p><strong>6 000 LKR</strong> per person</p>
+        </li>
+      </ul>
+      <Image
+        src={groupLessonImage}
+        alt="Group of 3 surfers, waiting to catch a wave in the ocean"
+        width={300}
+      />
+    </li>
+  </ul>
+</section>
