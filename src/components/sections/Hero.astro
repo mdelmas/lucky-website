@@ -2,27 +2,72 @@
 import { Image } from 'astro:assets';
 import logo from '@assets/logo-lucky-surf-school.svg';
 import heroImage from '@assets/hero-hiriketiya.jpg';
+import WaveDivider from '@components/ui/WaveDivider.astro';
+import ButtonLink from '@components/ui/ButtonLink.astro';
 ---
 
 <header>
-  <nav>
-    <a href="/" class="logo"
-      ><img
-        src={logo.src}
-        width="160"
-        height="160"
-        alt="Lucky Surf School Logo"
-      />
-    </a>
-    <a href="#booking" class="button">Book Now</a>
-  </nav>
-  <div>
-    <p>Catch your next waves in Hiriketiya</p>
-    <h1>Certified surf lessons in Sri Lanka — tailored to you</h1>
+  <div class="content">
+    <nav>
+      <a href="/" class="logo"
+        ><img
+          src={logo.src}
+          width="160"
+          height="160"
+          alt="Lucky Surf School Logo"
+        />
+      </a>
+      <ButtonLink>Book Now</ButtonLink>
+    </nav>
+    <div class="heading-container">
+      <p class="heading">Catch your next waves in Hiriketiya</p>
+      <h1 class="subheading">
+        Certified surf lessons in Sri Lanka — tailored to you
+      </h1>
+    </div>
+    <div class="wave-divider">
+      <WaveDivider />
+    </div>
   </div>
+
   <Image
     src={heroImage}
     alt="Aerial view of Hiriketiya Bay in Sri Lanka with palm trees, beach and a few waves"
-    width={500}
+    class="background-image"
   />
 </header>
+
+<style>
+  header {
+    color: var(--color-white);
+    position: relative;
+    height: 90vh;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+  }
+
+  .wave-divider {
+    position: absolute;
+    bottom: 0;
+
+    color: var(--color-primary);
+  }
+
+  .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .subheading {
+    font-size: var(--font-size-large-text);
+    font-weight: var(--font-weight-medium);
+  }
+</style>

@@ -1,1 +1,64 @@
+:root {
+  /* Colors */
+  --color-white: hsl(51.43, 100%, 98.63%); /* #fffef8 */
+  --color-primary: hsl(200, 32%, 29.41%); /* #335363 */
+  --color-primary-light: hsl(160, 7.89%, 85.1%); /* #d6dcda */
+  --color-teal: hsl(180, 43.93%, 41.96%); /* #3c9a9a */
+  --color-teal-light: hsl(168, 37.63%, 81.76%); /* #bfe2db */
+  --color-teal-pastel: hsl(162, 35.71%, 89.02%); /* #d9ede7 */
+  --color-green-pastel: hsl(66.21, 46.03%, 87.65%); /* #dee4b7 */
+  --color-blue-pastel: hsl(190.59, 28.81%, 88.43%); /* #bfd8e0 */
 
+  /* Font families */
+  --font-sans: 'Rubik', system-ui, sans-serif;
+  --font-display: 'Staatliches', sans-serif;
+
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extra-bold: 800;
+  --font-weight-black: 900;
+
+  /* Font sizes */
+  --font-size-base: 16px;
+  --font-size-text: 1.25rem;
+  --font-size-large-text: 1.5rem;
+  --font-size-heading: 4rem;
+  --font-size-small-heading: 2.5rem;
+
+  /* Font line height */
+  --line-height-text: 1.5;
+  --line-height-heading: 1.2;
+
+  /* Letter spacing */
+  --letter-spacing-heading: 0.1em;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+
+  font-size: 16px;
+  font-family: var(--font-sans);
+  line-height: var(--line-height-text);
+
+  background-color: var(--color-white);
+  color: var(--color-primary);
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: var(--font-size-heading);
+
+  letter-spacing: var(--letter-spacing-heading);
+  line-height: var(--line-height-heading);
+}
+
+.large-text {
+  font-size: var(--font-size-large-text);
+}
