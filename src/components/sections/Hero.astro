@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '@assets/logo-lucky-surf-school.svg';
-import heroImage from '@assets/hero-hiriketiya.jpg';
+import heroImage from '@assets/hero-hiriketiya-overlay.jpg';
 import WaveDivider from '@components/ui/WaveDivider.astro';
 import ButtonLink from '@components/ui/ButtonLink.astro';
 ---
@@ -9,45 +9,72 @@ import ButtonLink from '@components/ui/ButtonLink.astro';
 <header>
   <div class="content">
     <nav>
-      <a href="/" class="logo"
-        ><img
-          src={logo.src}
-          width="160"
-          height="160"
-          alt="Lucky Surf School Logo"
-        />
+      <a href="/" class="logo">
+        <img src={logo.src} alt="Lucky Surf School Logo" />
       </a>
-      <ButtonLink>Book Now</ButtonLink>
+      <div class="book-now-button">
+        <ButtonLink variant="white" href="/booking"> Book Now </ButtonLink>
+      </div>
     </nav>
+
     <div class="heading-container">
-      <p class="heading">Catch your next waves in Hiriketiya</p>
+      <p class="heading">Catch your next waves<br />in Hiriketiya</p>
       <h1 class="subheading">
         Certified surf lessons in Sri Lanka — tailored to you
       </h1>
     </div>
-    <div class="wave-divider">
-      <WaveDivider />
-    </div>
   </div>
 
-  <Image
-    src={heroImage}
-    alt="Aerial view of Hiriketiya Bay in Sri Lanka with palm trees, beach and a few waves"
-    class="background-image"
-  />
+  <div class="background-image-container">
+    <Image
+      src={heroImage}
+      alt="Aerial view of Hiriketiya Bay in Sri Lanka with palm trees, beach and a few waves"
+      class="background-image"
+    />
+  </div>
+
+  <div class="wave-divider">
+    <WaveDivider />
+  </div>
 </header>
 
 <style>
   header {
     color: var(--color-white);
-    position: relative;
-    height: 90vh;
+    height: 95vh;
+
+    padding-top: 4rem;
   }
 
   .content {
     position: relative;
     z-index: 1;
     height: 100%;
+
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo {
+    height: 100%;
+    position: relative;
+  }
+
+  .logo img {
+    position: absolute;
+
+    width: clamp(96px, 10vw, 160px);
+
+    transform: rotate(-7deg);
+  }
+
+  .book-now-button {
+    align-self: flex-end;
   }
 
   .wave-divider {
@@ -66,8 +93,34 @@ import ButtonLink from '@components/ui/ButtonLink.astro';
     object-fit: cover;
     z-index: 0;
   }
+
+  .background-image::after {
+    content: '';
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0);
+    /* mix-blend-mode: multiply; multiply, screen, overlay, etc. */
+    pointer-events: none; /* pour ne pas gêner les clics */
+  }
+
+  .heading-container {
+    width: 100%;
+    max-width: 800px;
+
+    text-align: center;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+  }
   .subheading {
     font-size: var(--font-size-large-text);
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-normal);
   }
 </style>

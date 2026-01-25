@@ -1,6 +1,7 @@
 :root {
   /* Colors */
   --color-white: hsl(51.43, 100%, 98.63%); /* #fffef8 */
+  --color-white-dark: hsl(50, 25%, 91%); /* #EDEAD9 */
   --color-primary: hsl(200, 32%, 29.41%); /* #335363 */
   --color-primary-light: hsl(160, 7.89%, 85.1%); /* #d6dcda */
   --color-teal: hsl(180, 43.93%, 41.96%); /* #3c9a9a */
@@ -25,16 +26,21 @@
   /* Font sizes */
   --font-size-base: 16px;
   --font-size-text: 1.25rem;
-  --font-size-large-text: 1.5rem;
+  --font-size-large-text: 1.4rem;
   --font-size-heading: 4rem;
   --font-size-small-heading: 2.5rem;
 
   /* Font line height */
   --line-height-text: 1.5;
-  --line-height-heading: 1.2;
+  --line-height-heading: 1.1;
 
   /* Letter spacing */
   --letter-spacing-heading: 0.1em;
+
+  /* Breakpoints */
+  --breakpoint-mobile: 500px;
+  --breakpoint-tablet: 1024px;
+  --breakpoint-desktop: 1440px;
 }
 
 html,
@@ -45,6 +51,7 @@ body {
 
   font-size: 16px;
   font-family: var(--font-sans);
+  font-weight: var(--font-weight-light);
   line-height: var(--line-height-text);
 
   background-color: var(--color-white);
@@ -61,4 +68,10 @@ body {
 
 .large-text {
   font-size: var(--font-size-large-text);
+}
+
+.content {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 3rem);
 }
