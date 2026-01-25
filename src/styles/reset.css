@@ -129,12 +129,16 @@ table {
 }
 
 /* mine */
-a {
-  text-decoration: none;
-}
-
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
 }
