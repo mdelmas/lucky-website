@@ -1,7 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '@assets/logo-lucky-surf-school.svg';
-import heroImage from '@assets/hero-hiriketiya-overlay.jpg';
+// import heroImage from '@assets/hero-hiriketiya-overlay.jpg';
+import heroImage from '@assets/hero-hiriketiya.jpg';
 import WaveDivider from '@components/ui/WaveDivider.astro';
 import ButtonLink from '@components/ui/ButtonLink.astro';
 ---
@@ -12,9 +13,7 @@ import ButtonLink from '@components/ui/ButtonLink.astro';
       <a href="/" class="logo">
         <img src={logo.src} alt="Lucky Surf School Logo" />
       </a>
-      <div class="book-now-button">
-        <ButtonLink variant="white" href="/booking"> Book Now </ButtonLink>
-      </div>
+      <ButtonLink variant="white" href="/booking"> Book Now </ButtonLink>
     </nav>
 
     <div class="heading-container">
@@ -25,88 +24,51 @@ import ButtonLink from '@components/ui/ButtonLink.astro';
     </div>
   </div>
 
-  <div class="background-image-container">
+  <div class="background-container">
     <Image
       src={heroImage}
       alt="Aerial view of Hiriketiya Bay in Sri Lanka with palm trees, beach and a few waves"
-      class="background-image"
     />
+    <div class="overlay"></div>
   </div>
 
-  <div class="wave-divider">
+  <div class="divider-container">
     <WaveDivider />
   </div>
 </header>
 
 <style>
+  /* General */
   header {
-    color: var(--color-white);
-    height: 95vh;
+    height: 98vh;
+    position: relative;
 
-    padding-top: 4rem;
+    color: var(--color-white);
   }
 
   .content {
+    height: 100%;
+    padding-top: 4rem;
     position: relative;
     z-index: 1;
-    height: 100%;
 
     display: grid;
     grid-template-rows: auto 1fr;
   }
 
+  /* Nav bar */
   nav {
     display: flex;
     justify-content: space-between;
   }
 
-  .logo {
-    height: 100%;
-    position: relative;
-  }
-
   .logo img {
     position: absolute;
-
     width: clamp(96px, 10vw, 160px);
-
-    transform: rotate(-7deg);
+    transform: rotate(-7deg) translateY(-10%);
   }
 
-  .book-now-button {
-    align-self: flex-end;
-  }
-
-  .wave-divider {
-    position: absolute;
-    bottom: 0;
-
-    color: var(--color-primary);
-  }
-
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-
-  .background-image::after {
-    content: '';
-    display: block;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 0, 0);
-    /* mix-blend-mode: multiply; multiply, screen, overlay, etc. */
-    pointer-events: none; /* pour ne pas gêner les clics */
-  }
-
+  /* Heading content */
   .heading-container {
     width: 100%;
     max-width: 800px;
@@ -118,9 +80,45 @@ import ButtonLink from '@components/ui/ButtonLink.astro';
     flex-direction: column;
     justify-content: center;
     gap: 2rem;
+
+    padding-bottom: 4rem;
   }
   .subheading {
     font-size: var(--font-size-large-text);
     font-weight: var(--font-weight-normal);
+  }
+
+  /* Background image */
+  .background-container img {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  .background-container .overlay {
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    background-color: hsla(var(--color-primary-hsl), 0.8);
+    mix-blend-mode: multiply;
+  }
+
+  /* Decorative divider */
+  .divider-container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    color: var(--color-primary);
   }
 </style>
