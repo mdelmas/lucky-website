@@ -2,7 +2,10 @@
 
 #### To do
 
+[ ] - gérer optimisation images : définir ratio / taille where necessary
 [ ] - installer css post processor (Sass / SCSS ou PostCSS)
+[ ] - ajouter tous les trucs en mode responsive (padding, font fluide, ...)
+[ ] - ajouter animations / transitions
 
 # Astro Starter Kit: Basics
 

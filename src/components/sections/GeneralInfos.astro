@@ -62,13 +62,15 @@ import WavyCircle from '@ui/WavyCircle.astro';
   section {
     color: var(--color-white);
     background-color: var(--color-primary);
-    padding: 8rem 0 10rem 0;
   }
 
   .content {
     display: flex;
     flex-direction: column;
     gap: 8rem;
+
+    padding-top: 8rem;
+    padding-bottom: 10rem;
   }
 
   /* Intro */
@@ -93,11 +95,11 @@ import WavyCircle from '@ui/WavyCircle.astro';
   }
 
   ul {
+    grid-column: 1 / -1;
+
     display: grid;
     grid-template-columns: subgrid;
     gap: inherit;
-
-    grid-column: 1 / -1;
   }
 
   /* Class detail  */
