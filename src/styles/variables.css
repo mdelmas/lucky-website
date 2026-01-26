@@ -59,11 +59,15 @@ html {
 body {
   font-size: var(--font-size-text);
   font-family: var(--font-sans);
-  font-weight: var(--font-weight-regular);
+  font-weight: var(--font-weight-light);
   line-height: var(--line-height-text);
 
   background-color: var(--color-white);
   color: var(--color-primary);
+}
+
+.large-text {
+  font-size: var(--font-size-large-text);
 }
 
 .heading,
@@ -81,16 +85,12 @@ body {
   font-size: var(--font-size-small-heading);
 }
 
-.large-text {
-  font-size: var(--font-size-large-text);
+strong {
+  font-weight: var(--font-weight-medium);
 }
 
 .content {
   max-width: 1280px;
   margin-inline: auto;
   padding-inline: clamp(1rem, 5vw, 3rem);
-}
-
-strong {
-  font-weight: var(--font-weight-semi-bold);
 }

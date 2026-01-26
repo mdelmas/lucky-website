@@ -1,3 +1,9 @@
+# Lucky Website
+
+#### To do
+
+[ ] - installer css post processor (Sass / SCSS ou PostCSS)
+
 # Astro Starter Kit: Basics
 
 ```sh

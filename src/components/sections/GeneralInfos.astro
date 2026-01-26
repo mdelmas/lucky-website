@@ -1,0 +1,131 @@
+---
+import WavyCircle from '@ui/WavyCircle.astro';
+---
+
+<section>
+  <div class="content">
+    <div class="intro large-text">
+      <p>
+        Surfing in Hiriketiya is about more than just catching waves — it’s
+        about feeling good in the ocean and enjoying one of Sri Lanka’s most
+        beautiful bays.
+      </p>
+      <p>
+        The bay offers calm, consistent conditions, ideal for beginners and
+        surfers ready to progress.
+      </p>
+      <p>
+        From first rides to green waves, I’m a certified ISA Level 1 instructor
+        here to help you surf safely, gain confidence, and have fun every step
+        of the way!
+      </p>
+    </div>
+
+    <div class="classes-presentation">
+      <h2 class="small-heading">Surf Sessions for Everyone</h2>
+      <ul>
+        <li>
+          <a href="#beginner-lessons">
+            <div class="bullet">
+              <WavyCircle />
+            </div>
+            <div class="text">
+              <h3><strong>Beginner Lessons</strong> — private or group</h3>
+              <p>
+                For anyone who’s never surfed before or has only tried a few
+                times
+              </p>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="#intermediate-lessons">
+            <div class="bullet">
+              <WavyCircle />
+            </div>
+            <div class="text">
+              <h3><strong>Intermediate Lessons</strong></h3>
+              <p>
+                For surfers already catching green waves, who want to improve
+                their technique
+              </p>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* General */
+  section {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    padding: 8rem 0 10rem 0;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+  }
+
+  /* Intro */
+  .intro {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Classes presentation  */
+  .classes-presentation {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 2rem 4rem;
+  }
+
+  .classes-presentation h2 {
+    grid-column: 1 / -1;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: subgrid;
+    gap: inherit;
+
+    grid-column: 1 / -1;
+  }
+
+  /* Class detail  */
+  ul li a {
+    display: flex;
+
+    gap: 1rem;
+  }
+
+  .bullet {
+    color: var(--color-teal-light);
+    font-size: 2rem;
+  }
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  /* Responsive */
+  @media (min-width: 1024px) {
+    .intro {
+      width: 66%;
+    }
+
+    .classes-presentation {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>
