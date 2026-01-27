@@ -1,38 +1,140 @@
 ---
 import logo from '@assets/logo-lucky-surf-school.svg';
+import WaveDivider from '@ui/WaveDivider.astro';
+import IconInstagram from '@ui/icons/IconInstagram.astro';
+
+const googleMapsKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
+console.log(googleMapsKey);
 ---
 
 <section>
-  <a href="/" class="logo"
-    ><img
-      src={logo.src}
-      width="160"
-      height="160"
-      alt="Lucky Surf School Logo"
-    />
-  </a>
+  <div class="divider-container">
+    <WaveDivider />
+  </div>
 
-  <h2>Hiriketiya Lucky Surf School</h2>
-  <address>
-    <p>
-      Hiriketiya Beach Rd<br />
-      Dikwella 81200<br />
-      Sri Lanka
-    </p>
-    <a href="tel:+94773495957">+94 77 349 5957</a>
-    <a
-      href="https://www.instagram.com/hiriketiya_lucky_surf_school/?hl=en"
-      target="_blank"
-      rel="noopener">@hiriketiya_lucky_surf_school</a
-    >
-    <a
-      href="https://calendly.com/luckysurfhiriketiya"
-      target="_blank"
-      rel="noopener">calendly.com/luckysurfhiriketiya</a
-    >
-  </address>
+  <div class="contact-container">
+    <div class="content">
+      <div class="contact-infos">
+        <a href="/" class="logo"
+          ><img src={logo.src} alt="Lucky Surf School Logo" />
+        </a>
 
-  <div>
-    <iframe></iframe>
+        <h2 class="small-heading">Hiriketiya<br />Lucky Surf School</h2>
+        <address>
+          <p>
+            Hiriketiya Beach Rd<br />
+            Dikwella 81200<br />
+            Sri Lanka
+          </p>
+
+          <a href="tel:+94773495957">+94 77 349 5957</a>
+          <a
+            href="https://www.instagram.com/hiriketiya_lucky_surf_school/?hl=en"
+            target="_blank"
+            rel="noopener"
+          >
+            <IconInstagram />
+            @hiriketiya_lucky_surf_school
+          </a>
+          <a
+            href="https://calendly.com/luckysurfhiriketiya"
+            target="_blank"
+            rel="noopener">calendly.com/luckysurfhiriketiya</a
+          >
+        </address>
+      </div>
+      <div id="map"></div>
+    </div>
   </div>
 </section>
+
+<style>
+  .divider-container {
+    color: var(--color-primary);
+  }
+  .contact-container {
+    color: var(--color-white);
+    background-color: var(--color-primary);
+  }
+
+  .content {
+    position: relative;
+
+    height: 100vh;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+
+    padding-top: 8rem;
+    padding-bottom: 10rem;
+  }
+
+  .logo {
+    position: absolute;
+    bottom: 10vh;
+    left: 30vw;
+    z-index: 1;
+  }
+
+  .logo img {
+    width: 30vh;
+    height: 30vh;
+    display: block;
+  }
+
+  #map {
+    width: 100%;
+    height: 400px;
+
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+
+  @media (min-width: 1100px) {
+    .content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    #map {
+      height: 100%;
+    }
+  }
+</style>
+
+<script is:inline>
+  function initMap() {
+    const point = { lat: 5.96269, lng: 80.70697 }; // coordonnées Hiriketiya Lucky Surf School
+    const map = new google.maps.Map(document.getElementById('map'), {
+      center: point,
+      zoom: 15,
+      monochrome: true,
+      variant: 'light',
+      styles: [
+        {
+          id: 'infrastructure',
+          geometry: {
+            visible: true,
+          },
+        },
+        {
+          id: 'pointOfInterest',
+          geometry: {
+            visible: true,
+          },
+        },
+      ],
+    });
+    const marker = new google.maps.Marker({
+      position: point,
+      map: map,
+      url: '/location-dot.svg',
+      title: 'Hiriketiya Lucky Surf School',
+    });
+  }
+</script>
+
+<script
+  src={`https://maps.googleapis.com/maps/api/js?key=${googleMapsKey}&callback=initMap`}
+  async
+  defer></script>

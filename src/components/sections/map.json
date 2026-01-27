@@ -1,0 +1,18 @@
+{
+  "monochrome": true,
+  "variant": "light",
+  "styles": [
+    {
+      "id": "infrastructure",
+      "geometry": {
+        "visible": true
+      }
+    },
+    {
+      "id": "pointOfInterest",
+      "geometry": {
+        "visible": true
+      }
+    }
+  ]
+}

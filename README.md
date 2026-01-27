@@ -3,10 +3,14 @@
 #### To do
 
 [ ] - clean / rationnalize all styles
+[ ] - clean assets : remove all images not used, juste used to copy / paste svg
 [ ] - gérer optimisation images : définir ratio / taille where necessary
 
 ---
 
+[ ] - créer repo + compte github avec compte Lucky ?
+[ ] - bouger projet Google sur compte Lucky
+[ ] - link nom de domaine + vercel
 [ ] - installer css post processor (Sass / SCSS ou PostCSS)
 [ ] - ajouter tous les trucs en mode responsive (padding, font fluide, ...)
 [ ] - ajouter animations / transitions
