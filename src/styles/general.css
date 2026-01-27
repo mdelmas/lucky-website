@@ -58,3 +58,13 @@ em {
   padding-right: clamp(1rem, 5vw, 3rem);
   padding-left: clamp(1rem, 5vw, 3rem);
 }
+
+.list li {
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  column-gap: 0.5rem;
+}
+
+.list li::before {
+  content: '•';
+}

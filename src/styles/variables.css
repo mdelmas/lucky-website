@@ -26,7 +26,7 @@
 
   /* Font sizes */
   --font-size-base: 16px;
-  --font-size-text: 1.25rem;
+  --font-size-text: 1rem;
   --font-size-large-text: 1.3rem;
   --font-size-heading: 4rem;
   --font-size-small-heading: 2rem;
@@ -41,6 +41,6 @@
 
   /* Breakpoints */
   --breakpoint-mobile: 550px;
-  --breakpoint-tablet: 1100px;
-  --breakpoint-desktop: 1500px;
+  --breakpoint-tablet: 900px;
+  --breakpoint-desktop: 1200px;
 }

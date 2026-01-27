@@ -3,12 +3,13 @@ import { Image } from 'astro:assets';
 import whatsIncludedImage from '@assets/whats-included.svg';
 import whatToBringImage from '@assets/what-to-bring.svg';
 import whatToExpectImage from '@assets/what-to-expect.svg';
-import luckyImage from '@assets/lucky-surf-coach.jpg';
+
+import TeachingInfos from '@sections/TeachingInfos.astro';
 ---
 
 <section>
   <div class="content">
-    <div class="infos">
+    <div class="lessons-infos">
       <ul>
         <li>
           <h3 class="small-heading">What's Included</h3>
@@ -36,79 +37,46 @@ import luckyImage from '@assets/lucky-surf-coach.jpg';
       </ul>
     </div>
 
-    <article>
-      <h3>How I teach</h3>
-      <p>
-        I’m a certified ISA Level 1 instructor, with experience surfing both in
-        Sri Lanka and abroad. My approach is simple: safe, friendly surf
-        sessions that help you progress with confidence.
-      </p>
-      <ul>
-        <li>
-          <strong>Safety first</strong> — calm, supportive coaching so you feel comfortable
-          and confident in the water
-        </li>
-        <li>
-          <strong>Clear guidance</strong> — simple explanations in English, both on
-          the beach and in the waves
-        </li>
-        <li>
-          <strong>Theory to practice</strong> — we break things down on land, then
-          apply it in the water
-        </li>
-        <li>
-          <strong>Local knowledge</strong> — I grew up surfing Hiriketiya and know
-          the bay inside out
-        </li>
-        <li>
-          <strong>Friendly progression</strong> — no pressure, just steady improvement
-          while enjoying the ocean
-        </li>
-      </ul>
-      <Image
-        src={luckyImage}
-        alt="Lucky, certified surf instructor in Hiriketiya, holding a surfboard and smiling"
-        width={300}
-      />
-    </article>
+    <TeachingInfos />
   </div>
-</section>
 
-<style>
-  section {
-    background-color: var(--color-teal-light);
-  }
-
-  .content {
-  }
-
-  .infos {
-    padding-top: 12rem;
-    padding-bottom: 12rem;
-  }
-  .infos ul {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 4rem;
-  }
-
-  .infos ul li {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    align-items: center;
-    text-align: center;
-  }
-
-  .infos ul li img {
-    width: 100%;
-    max-width: 22rem;
-  }
-
-  @media (min-width: 550px) {
-    .infos ul {
-      grid-template-columns: repeat(3, 1fr);
+  <style>
+    section {
+      background-color: var(--color-teal-light);
     }
-  }
-</style>
+
+    .content {
+      padding-top: 12rem;
+      padding-bottom: 12rem;
+    }
+
+    .lessons-infos {
+      padding-bottom: 12rem;
+    }
+    .lessons-infos ul {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+
+    .lessons-infos ul li {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      align-items: center;
+      text-align: center;
+    }
+
+    .lessons-infos ul li img {
+      width: 100%;
+      max-width: 22rem;
+    }
+
+    @media (min-width: 550px) {
+      .lessons-infos ul {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</section>
