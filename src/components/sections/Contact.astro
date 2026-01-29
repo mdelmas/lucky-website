@@ -1,10 +1,10 @@
 ---
 import logo from '@assets/logo-lucky-surf-school.svg';
+import IconCalendar from '@components/ui/icons/IconCalendar.astro';
+import IconWhatsApp from '@components/ui/icons/IconWhatsApp.astro';
+import GoogleMaps from '@components/ui/GoogleMaps.astro';
 import WaveDivider from '@ui/WaveDivider.astro';
 import IconInstagram from '@ui/icons/IconInstagram.astro';
-
-const googleMapsKey = import.meta.env.PUBLIC_GOOGLE_MAPS_API_KEY;
-console.log(googleMapsKey);
 ---
 
 <section>
@@ -19,31 +19,46 @@ console.log(googleMapsKey);
           ><img src={logo.src} alt="Lucky Surf School Logo" />
         </a>
 
-        <h2 class="small-heading">Hiriketiya<br />Lucky Surf School</h2>
         <address>
-          <p>
-            Hiriketiya Beach Rd<br />
-            Dikwella 81200<br />
-            Sri Lanka
-          </p>
-
-          <a href="tel:+94773495957">+94 77 349 5957</a>
           <a
-            href="https://www.instagram.com/hiriketiya_lucky_surf_school/?hl=en"
+            href="https://maps.app.goo.gl/QaRHBpn1ym5XsT1D8"
             target="_blank"
             rel="noopener"
+            class="postal"
           >
-            <IconInstagram />
-            @hiriketiya_lucky_surf_school
+            <h2 class="small-heading">Hiriketiya<br />Lucky Surf School</h2>
+            <p>
+              Hiriketiya Beach Rd<br />
+              Dikwella 81200<br />
+              Sri Lanka
+            </p>
           </a>
-          <a
-            href="https://calendly.com/luckysurfhiriketiya"
-            target="_blank"
-            rel="noopener">calendly.com/luckysurfhiriketiya</a
-          >
+
+          <div class="socials">
+            <a href="tel:+94773495957">
+              <IconWhatsApp />
+              <strong>+94 77 349 5957</strong>
+            </a>
+            <a
+              href="https://www.instagram.com/hiriketiya_lucky_surf_school/?hl=en"
+              target="_blank"
+              rel="noopener"
+            >
+              <IconInstagram />
+              <strong>@hiriketiya_lucky_surf_school</strong>
+            </a>
+            <a
+              href="https://calendly.com/luckysurfhiriketiya"
+              target="_blank"
+              rel="noopener"
+            >
+              <IconCalendar />
+              <strong>calendly.com/luckysurfhiriketiya</strong>
+            </a>
+          </div>
         </address>
       </div>
-      <div id="map"></div>
+      <GoogleMaps />
     </div>
   </div>
 </section>
@@ -58,83 +73,63 @@ console.log(googleMapsKey);
   }
 
   .content {
-    position: relative;
-
-    height: 100vh;
+    min-height: 100vh;
 
     display: grid;
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 16rem;
 
     padding-top: 8rem;
     padding-bottom: 10rem;
   }
 
+  .contact-infos {
+    position: relative;
+  }
+
+  address {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .postal,
+  .socials {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .socials a {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
   .logo {
     position: absolute;
-    bottom: 10vh;
-    left: 30vw;
+    bottom: -18rem;
+    right: 0;
     z-index: 1;
+
+    transform: rotate(14deg);
   }
 
   .logo img {
-    width: 30vh;
-    height: 30vh;
+    width: 16rem;
+    height: 16rem;
     display: block;
-  }
-
-  #map {
-    width: 100%;
-    height: 400px;
-
-    border-radius: 1rem;
-    overflow: hidden;
   }
 
   @media (min-width: 1100px) {
     .content {
       grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
     }
 
-    #map {
-      height: 100%;
+    .logo {
+      bottom: -4rem;
+      right: -6rem;
     }
   }
 </style>
-
-<script is:inline>
-  function initMap() {
-    const point = { lat: 5.96269, lng: 80.70697 }; // coordonnées Hiriketiya Lucky Surf School
-    const map = new google.maps.Map(document.getElementById('map'), {
-      center: point,
-      zoom: 15,
-      monochrome: true,
-      variant: 'light',
-      styles: [
-        {
-          id: 'infrastructure',
-          geometry: {
-            visible: true,
-          },
-        },
-        {
-          id: 'pointOfInterest',
-          geometry: {
-            visible: true,
-          },
-        },
-      ],
-    });
-    const marker = new google.maps.Marker({
-      position: point,
-      map: map,
-      url: '/location-dot.svg',
-      title: 'Hiriketiya Lucky Surf School',
-    });
-  }
-</script>
-
-<script
-  src={`https://maps.googleapis.com/maps/api/js?key=${googleMapsKey}&callback=initMap`}
-  async
-  defer></script>

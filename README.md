@@ -5,6 +5,13 @@
 [ ] - clean / rationnalize all styles
 [ ] - clean assets : remove all images not used, juste used to copy / paste svg
 [ ] - gérer optimisation images : définir ratio / taille where necessary
+[ ] - metadata pour avoir img au c/c
+[ ] - ajouter données structurées d'établissement local
+https://digitalnomadshq.com.au/glossary/local-business-schema/#:~:text=Local%20Business%20Schema%20is%20a,details%20about%20a%20local%20business.
+https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=fr
+https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=fr
+https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript?hl=fr
+[ ] - modifier maps pour utiliser Google Maps Api si je veux vraiment changer les couleurs
 
 ---
 
