@@ -1,28 +1,26 @@
 # Lucky Website
 
-#### To do
+### To do
 
-[ ] - clean / rationnalize all styles
-[ ] - clean assets : remove all images not used, juste used to copy / paste svg
-[ ] - gérer optimisation images : définir ratio / taille where necessary
-[ ] - metadata pour avoir img au c/c
-[ ] - ajouter données structurées d'établissement local
-https://digitalnomadshq.com.au/glossary/local-business-schema/#:~:text=Local%20Business%20Schema%20is%20a,details%20about%20a%20local%20business.
-https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=fr
-https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=fr
-https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript?hl=fr
-[ ] - modifier maps pour utiliser Google Maps Api si je veux vraiment changer les couleurs
+- [ ] clean / rationnalize all styles
+- [ ] clean assets : remove all images not used, juste used to copy / paste svg
+- [ ] gérer optimisation images : définir ratio / taille where necessary
+- [ ] metadata pour avoir img au c/c
+- [ ] ajouter données structurées d'établissement local ([x](https://digitalnomadshq.com.au/glossary/local-business-schema/#:~:text=Local%20Business%20Schema%20is%20a,details%20about%20a%20local%20business.), [x](https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=fr), [x](https://developers.google.com/search/docs/appearance/structured-data/local-business?hl=fr), [x](https://developers.google.com/search/docs/appearance/structured-data/generate-structured-data-with-javascript?hl=fr))
+- [ ] modifier maps pour utiliser Google Maps Api si je veux vraiment changer les couleurs
+- [ ] intégration Insta : besoin d'un compte pro (à check : Behold, EmbedSocial, Api Insta direct)
+- [ ] clean assets instagram : ne garder que ce qui est utlisé
 
 ---
 
-[ ] - créer repo + compte github avec compte Lucky ?
-[ ] - bouger projet Google sur compte Lucky
-[ ] - link nom de domaine + vercel
-[ ] - installer css post processor (Sass / SCSS ou PostCSS)
-[ ] - ajouter tous les trucs en mode responsive (padding, font fluide, ...)
-[ ] - ajouter animations / transitions
+- [ ] créer repo + compte github avec compte Lucky ?
+- [ ] bouger projet Google sur compte Lucky
+- [ ] link nom de domaine + vercel
+- [ ] installer css post processor (Sass / SCSS ou PostCSS)
+- [ ] ajouter tous les trucs en mode responsive (padding, font fluide, ...)
+- [ ] ajouter animations / transitions
 
-# Astro Starter Kit: Basics
+# Doc Astro
 
 ```sh
 npm create astro@latest -- --template basics
