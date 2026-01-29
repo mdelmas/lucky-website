@@ -10,6 +10,7 @@
 - [ ] modifier maps pour utiliser Google Maps Api si je veux vraiment changer les couleurs
 - [ ] intégration Insta : besoin d'un compte pro (à check : Behold, EmbedSocial, Api Insta direct)
 - [ ] clean assets instagram : ne garder que ce qui est utlisé
+- [ ] check embedding Calendly ?
 
 ---
 

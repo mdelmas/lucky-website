@@ -9,12 +9,15 @@ import ButtonLink from '@ui/ButtonLink.astro';
 
 <header>
   <div class="content">
-    <nav>
-      <a href="/" class="logo">
-        <img src={logo.src} alt="Lucky Surf School Logo" />
-      </a>
+    <!-- <nav> -->
+    <a href="/" class="logo">
+      <img src={logo.src} alt="Lucky Surf School Logo" />
+    </a>
+
+    <div class="cta">
       <ButtonLink variant="white" href="/booking"> Book Now </ButtonLink>
-    </nav>
+    </div>
+    <!-- </nav> -->
 
     <div class="heading-container">
       <p class="heading">Catch your next waves<br />in Hiriketiya</p>
@@ -40,20 +43,29 @@ import ButtonLink from '@ui/ButtonLink.astro';
 <style>
   /* General */
   header {
-    height: 98vh;
+    min-height: 98vh;
     position: relative;
 
     color: var(--color-white);
   }
 
   .content {
-    height: 100%;
+    min-height: 100%;
     padding-top: 4rem;
+    /* padding-bottom: calc(40px + 6rem); */
+
     position: relative;
     z-index: 1;
 
     display: grid;
-    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      'logo'
+      'heading'
+      'cta';
+
+    justify-items: center;
   }
 
   /* Nav bar */
@@ -62,10 +74,22 @@ import ButtonLink from '@ui/ButtonLink.astro';
     justify-content: space-between;
   }
 
+  .logo {
+    grid-area: logo;
+  }
+
   .logo img {
-    position: absolute;
+    /* position: absolute; */
     width: clamp(96px, 10vw, 160px);
-    transform: rotate(-7deg) translateY(-10%);
+    /* transform: rotate(-7deg) translateY(-10%); */
+    padding-bottom: 2rem;
+  }
+  .heading-container {
+    grid-area: heading;
+  }
+
+  .cta {
+    grid-area: cta;
   }
 
   /* Heading content */
