@@ -3,6 +3,8 @@
 ### To do
 
 - [ ] clean / rationnalize all styles
+- [ ] regérer paddings et margin pour uniformiser et rendre le tout reponsive
+- [ ] font fluides
 - [ ] clean assets : remove all images not used, juste used to copy / paste svg
 - [ ] gérer optimisation images : définir ratio / taille where necessary
 - [ ] metadata pour avoir img au c/c

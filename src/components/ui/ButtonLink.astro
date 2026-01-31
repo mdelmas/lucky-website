@@ -2,7 +2,13 @@
 const { variant, href, class: className } = Astro.props;
 ---
 
-<a href={href} class={`button ${className || ''}`} data-variant={variant}>
+<a
+  href={href}
+  class={`button ${className || ''}`}
+  data-variant={variant}
+  target="_blank"
+  rel="noopener"
+>
   <slot />
 </a>
 
@@ -21,7 +27,7 @@ const { variant, href, class: className } = Astro.props;
   }
 
   a:hover {
-    background-color: var(--color-primary-light);
+    background-color: var(--color-primary-light-darken);
   }
 
   a[data-variant='white'] {
@@ -30,6 +36,6 @@ const { variant, href, class: className } = Astro.props;
   }
 
   a[data-variant='white']:hover {
-    background-color: var(--color-white-dark);
+    background-color: var(--color-white-darken);
   }
 </style>

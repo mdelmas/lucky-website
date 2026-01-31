@@ -53,6 +53,7 @@ em {
 }
 
 .content {
+  width: 100%;
   max-width: 1280px;
   margin: auto;
   padding-right: clamp(1rem, 5vw, 3rem);

@@ -15,9 +15,7 @@ import IconInstagram from '@ui/icons/IconInstagram.astro';
   <div class="contact-container">
     <div class="content">
       <div class="contact-infos">
-        <a href="/" class="logo"
-          ><img src={logo.src} alt="Lucky Surf School Logo" />
-        </a>
+        <img class="logo" src={logo.src} alt="Lucky Surf School Logo" />
 
         <address>
           <a
@@ -35,11 +33,12 @@ import IconInstagram from '@ui/icons/IconInstagram.astro';
           </a>
 
           <div class="socials">
-            <a href="tel:+94773495957">
+            <a aria-label="Chat on WhatsApp" href="https://wa.me/94773495957">
               <IconWhatsApp />
               <strong>+94 77 349 5957</strong>
             </a>
             <a
+              aria-label="Instagram handle"
               href="https://www.instagram.com/hiriketiya_lucky_surf_school/?hl=en"
               target="_blank"
               rel="noopener"
@@ -48,6 +47,7 @@ import IconInstagram from '@ui/icons/IconInstagram.astro';
               <strong>@hiriketiya_lucky_surf_school</strong>
             </a>
             <a
+              aria-label="Book your lesson on calendly"
               href="https://calendly.com/luckysurfhiriketiya"
               target="_blank"
               rel="noopener"
@@ -66,6 +66,7 @@ import IconInstagram from '@ui/icons/IconInstagram.astro';
 <style>
   .divider-container {
     color: var(--color-primary);
+    background-color: var(--color-teal-pastel);
   }
   .contact-container {
     color: var(--color-white);
@@ -113,11 +114,8 @@ import IconInstagram from '@ui/icons/IconInstagram.astro';
     z-index: 1;
 
     transform: rotate(14deg);
-  }
-
-  .logo img {
-    width: 16rem;
-    height: 16rem;
+    width: 14rem;
+    height: 14rem;
     display: block;
   }
 

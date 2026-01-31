@@ -1,0 +1,72 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+
+import ButtonLink from '@ui/ButtonLink.astro';
+
+const reviews: CollectionEntry<'reviews'>[] = await getCollection('reviews');
+---
+
+<section class="">
+  <div class="gallery"></div>
+
+  <div class="title content">
+    <h2 class="heading">Hear From my Students</h2>
+    <p><em>Real feedback from people who learned and improved with me</em></p>
+  </div>
+
+  <div class="reviews-container">
+    <div class="reviews">
+      {
+        reviews.map((review) => (
+          <a href={review.data.url} target="_blank" rel="noopener">
+            <article class="review">
+              <div>{review.data.rating}⭐︎</div>
+              <p>{review.body}</p>
+              <p>
+                <strong>{review.data.author}</strong>
+              </p>
+            </article>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="content">
+    <ButtonLink href="https://maps.app.goo.gl/hSZ6TyxASJ45N4v18">
+      More reviews on Google Maps
+    </ButtonLink>
+  </div>
+</section>
+
+<style>
+  section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .reviews-container {
+  }
+
+  .reviews {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+  }
+
+  .review {
+    flex: 1;
+
+    padding: 2rem 1.5rem;
+    background-color: var(--color-blue-pastel);
+    border-radius: 1rem;
+    height: fit-content;
+
+    min-width: 300px;
+  }
+</style>

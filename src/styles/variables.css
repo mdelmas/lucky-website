@@ -1,10 +1,11 @@
 :root {
   /* Colors */
   --color-white: hsl(51.43, 100%, 98.63%); /* #fffef8 */
-  --color-white-dark: hsl(50, 25%, 91%); /* #EDEAD9 */
+  --color-white-darken: hsl(50, 25%, 91%); /* #EDEAD9 */
   --color-primary-hsl: 200, 32%, 29.41%;
   --color-primary: hsl(var(--color-primary-hsl)); /* #335363 */
   --color-primary-light: hsl(160, 7.89%, 85.1%); /* #d6dcda */
+  --color-primary-light-darken: hsl(180, 8.93%, 78.04%); /* #C2CCCC */
   --color-teal: hsl(180, 43.93%, 41.96%); /* #3c9a9a */
   --color-teal-light: hsl(168, 37.63%, 81.76%); /* #bfe2db */
   --color-teal-pastel: hsl(162, 35.71%, 89.02%); /* #d9ede7 */

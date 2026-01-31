@@ -15,7 +15,12 @@ import ButtonLink from '@ui/ButtonLink.astro';
     </a>
 
     <div class="cta">
-      <ButtonLink variant="white" href="/booking"> Book Now </ButtonLink>
+      <ButtonLink
+        variant="white"
+        href="https://calendly.com/luckysurfhiriketiya/surf-lesson"
+      >
+        Book Now
+      </ButtonLink>
     </div>
     <!-- </nav> -->
 
@@ -47,31 +52,30 @@ import ButtonLink from '@ui/ButtonLink.astro';
     position: relative;
 
     color: var(--color-white);
+
+    display: grid;
+    grid-template-rows: 1fr auto;
   }
 
   .content {
     min-height: 100%;
     padding-top: 4rem;
-    /* padding-bottom: calc(40px + 6rem); */
+    padding-bottom: 4rem;
 
     position: relative;
     z-index: 1;
 
     display: grid;
+    width: 100%;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
     grid-template-areas:
       'logo'
       'heading'
       'cta';
+    gap: 2rem;
 
     justify-items: center;
-  }
-
-  /* Nav bar */
-  nav {
-    display: flex;
-    justify-content: space-between;
   }
 
   .logo {
@@ -82,7 +86,6 @@ import ButtonLink from '@ui/ButtonLink.astro';
     /* position: absolute; */
     width: clamp(96px, 10vw, 160px);
     /* transform: rotate(-7deg) translateY(-10%); */
-    padding-bottom: 2rem;
   }
   .heading-container {
     grid-area: heading;
@@ -140,9 +143,29 @@ import ButtonLink from '@ui/ButtonLink.astro';
   /* Decorative divider */
   .divider-container {
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
 
     color: var(--color-primary);
+  }
+
+  @media (min-width: 900px) {
+    .content {
+      grid-template-rows: auto 1fr;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        'logo cta'
+        'heading heading';
+    }
+
+    .logo {
+      position: absolute;
+      justify-self: start;
+      transform: rotate(-7deg);
+    }
+
+    .cta {
+      justify-self: end;
+    }
   }
 </style>
