@@ -1,10 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+const reviews: CollectionEntry<'reviews'>[] = await getCollection('reviews');
 
 import ButtonLink from '@ui/ButtonLink.astro';
+import IconStar from '@components/ui/icons/IconStar.astro';
 
-const reviews: CollectionEntry<'reviews'>[] = await getCollection('reviews');
+const backgroundColors = ['teal', 'green', 'blue'];
 ---
 
 <section class="">
@@ -15,28 +17,41 @@ const reviews: CollectionEntry<'reviews'>[] = await getCollection('reviews');
     <p><em>Real feedback from people who learned and improved with me</em></p>
   </div>
 
-  <div class="reviews-container">
-    <div class="reviews">
+  <div class="reviews-scroll">
+    <ul class="reviews-track">
       {
         reviews.map((review) => (
-          <a href={review.data.url} target="_blank" rel="noopener">
-            <article class="review">
-              <div>{review.data.rating}⭐︎</div>
-              <p>{review.body}</p>
-              <p>
-                <strong>{review.data.author}</strong>
-              </p>
-            </article>
-          </a>
+          <li
+            class="review-card"
+            style={`
+              background-color: var(--color-${backgroundColors[Math.floor(Math.random() * backgroundColors.length)]}-pastel);
+            `}
+          >
+            <a href={review.data.url} target="_blank" rel="noopener">
+              <article>
+                <div class="rating">
+                  {Array.from({ length: review.data.rating }, (_) => (
+                    <IconStar />
+                  ))}
+                </div>
+                <p>{review.body}</p>
+                <p class="author">
+                  <strong>{review.data.author}</strong>
+                </p>
+              </article>
+            </a>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
 
   <div class="content">
-    <ButtonLink href="https://maps.app.goo.gl/hSZ6TyxASJ45N4v18">
-      More reviews on Google Maps
-    </ButtonLink>
+    <div class="link-container">
+      <ButtonLink href="https://maps.app.goo.gl/hSZ6TyxASJ45N4v18">
+        More reviews on Google Maps
+      </ButtonLink>
+    </div>
   </div>
 </section>
 
@@ -50,13 +65,78 @@ const reviews: CollectionEntry<'reviews'>[] = await getCollection('reviews');
     gap: 6rem;
   }
 
-  .reviews-container {
+  .title {
+    text-align: center;
   }
 
-  .reviews {
+  .reviews-scroll {
+    overflow-x: auto;
+    overflow-y: visible;
+    position: relative;
+
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
+  }
+
+  .reviews-scroll::-webkit-scrollbar {
+    display: none; /* Older Safari and Chromium */
+  }
+
+  .reviews-track {
+    display: flex;
+    gap: 2rem;
+
+    /* padding-inline: calc((100vw - 1200px) / 2); */
+  }
+
+  .review-card {
+    /* flex: 0 0 320px; */
+    flex: 1;
+    min-width: 320px;
+
+    padding: 2rem 1.5rem;
+
+    background-color: var(--color-blue-pastel);
+    border-radius: 1rem;
+    height: fit-content;
+  }
+
+  .review-card article {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .rating {
+    font-size: 0.9rem;
+    display: flex;
+
+    /* padding: 0.2rem; */
+    gap: 0.3rem;
+  }
+
+  .author {
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.2rem; */
+  }
+
+  .author::before {
+    content: '—';
+    font-weight: var(--font-weight-bold);
+    display: block;
+  }
+
+  /* .reviews {
     display: flex;
     gap: 2rem;
     overflow-x: auto;
+    -ms-overflow-style: none; /* Internet Explorer 10+ *
+    scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ *
+  }
+
+  .reviews::-webkit-scrollbar {
+    display: none; /* Older Safari and Chromium *
   }
 
   .review {
@@ -68,5 +148,10 @@ const reviews: CollectionEntry<'reviews'>[] = await getCollection('reviews');
     height: fit-content;
 
     min-width: 300px;
+  } */
+
+  .link-container {
+    margin: 0 auto;
+    width: fit-content;
   }
 </style>
