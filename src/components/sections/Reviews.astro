@@ -5,12 +5,15 @@ const reviews: CollectionEntry<'reviews'>[] = await getCollection('reviews');
 
 import ButtonLink from '@ui/ButtonLink.astro';
 import ReviewCard from '@ui/ReviewCard.astro';
+import Gallery from '@ui/Gallery.astro';
 
 const backgroundColors = ['teal', 'green', 'blue'];
 ---
 
 <section class="">
-  <div class="gallery"></div>
+  <div class="gallery">
+    <Gallery />
+  </div>
 
   <div class="title content">
     <h2 class="heading">Hear From my Students</h2>
@@ -50,7 +53,7 @@ const backgroundColors = ['teal', 'green', 'blue'];
 
 <style>
   section {
-    padding-top: 8rem;
+    /* padding-top: 8rem; */
     padding-bottom: 8rem;
 
     display: flex;
@@ -69,6 +72,7 @@ const backgroundColors = ['teal', 'green', 'blue'];
 
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
+    padding: 0 2rem;
   }
 
   .reviews-scroll::-webkit-scrollbar {
@@ -80,6 +84,13 @@ const backgroundColors = ['teal', 'green', 'blue'];
     gap: 2rem;
 
     /* padding-inline: calc((100vw - 1200px) / 2); */
+  }
+
+  .reviews-track li {
+    flex: 0 0 30%;
+    /* width: 40%; */
+    /* flex: 1; */
+    /* min-width: 320px; */
   }
 
   /* .reviews {

@@ -1,0 +1,96 @@
+---
+import gsap from 'gsap';
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '@assets/carousel/*.{jpg,jpeg,png,webp}'
+);
+
+console.log('images', images);
+---
+
+<div class="carousel">
+  <div class="group">
+    {
+      Array.from({ length: Object.values(images).length }, (_, i) => i + 1).map(
+        (i) => (
+          <div class="card">
+            <Image
+              src={images[`/src/assets/carousel/img${i}.jpg`]()}
+              alt={''}
+            />
+          </div>
+        )
+      )
+    }
+  </div>
+
+  <!-- clone -->
+  <div aria-hidden="true" class="group">
+    {
+      Array.from({ length: Object.values(images).length }, (_, i) => i + 1).map(
+        (i) => (
+          <div class="card">
+            <Image
+              src={images[`/src/assets/carousel/img${i}.jpg`]()}
+              alt={''}
+            />
+          </div>
+        )
+      )
+    }
+  </div>
+</div>
+
+<style>
+  .carousel {
+    margin: 0 auto;
+
+    min-width: 100%;
+    overflow: hidden;
+    display: flex;
+
+    padding-left: 1rem;
+
+    --animation-duration: 60s;
+  }
+
+  .group {
+    padding: 1rem 0.5rem;
+
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    flex-shrink: 0;
+
+    will-change: transform;
+    animation: scrolling var(--animation-duration) linear infinite;
+  }
+
+  .card {
+    width: 20vw;
+
+    overflow: hidden;
+    border-radius: 1rem;
+    height: 21rem;
+
+    color: white;
+    background: #7958ff;
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @keyframes scrolling {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+</style>
