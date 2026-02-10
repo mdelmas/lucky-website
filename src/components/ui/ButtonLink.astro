@@ -1,11 +1,13 @@
 ---
-const { variant, href, class: className } = Astro.props;
+const { color, size, href, class: className } = Astro.props;
+console.log(color, size);
 ---
 
 <a
   href={href}
   class={`button ${className || ''}`}
-  data-variant={variant}
+  data-color={color}
+  data-size={size}
   target="_blank"
   rel="noopener"
 >
@@ -21,21 +23,26 @@ const { variant, href, class: className } = Astro.props;
     width: fit-content;
 
     font-family: var(--font-display);
+    letter-spacing: var(--letter-spacing-heading);
 
     color: var(--color-primary);
     background-color: var(--color-primary-light);
+  }
+
+  a[data-size='large'] {
+    font-size: var(--font-size-small-heading);
   }
 
   a:hover {
     background-color: var(--color-primary-light-darken);
   }
 
-  a[data-variant='white'] {
+  a[data-color='white'] {
     color: var(--color-primary);
     background-color: var(--color-white);
   }
 
-  a[data-variant='white']:hover {
+  a[data-color='white']:hover {
     background-color: var(--color-white-darken);
   }
 </style>
