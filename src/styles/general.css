@@ -34,10 +34,12 @@ body {
 
 .heading {
   font-size: var(--font-size-heading);
+  word-break: break-word;
 }
 
 .small-heading {
   font-size: var(--font-size-small-heading);
+  word-break: break-word;
 }
 
 .accent-text {
