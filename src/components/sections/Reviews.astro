@@ -22,9 +22,41 @@ const backgroundColors = ['teal', 'green', 'blue'];
 
   <div class="reviews-scroll">
     <ul class="reviews-track">
+      <!-- clone début -->
+      {
+        reviews.slice(-4).map((review) => (
+          <li aria-hidden="true">
+            clone beginning
+            <ReviewCard
+              review={review}
+              color={
+                backgroundColors[
+                  Math.floor(Math.random() * backgroundColors.length)
+                ]
+              }
+            />
+          </li>
+        ))
+      }
       {
         reviews.map((review) => (
           <li>
+            <ReviewCard
+              review={review}
+              color={
+                backgroundColors[
+                  Math.floor(Math.random() * backgroundColors.length)
+                ]
+              }
+            />
+          </li>
+        ))
+      }
+      <!-- clone fin -->
+      {
+        reviews.slice(0, 4).map((review) => (
+          <li aria-hidden="true">
+            clone end
             <ReviewCard
               review={review}
               color={
@@ -51,6 +83,23 @@ const backgroundColors = ['teal', 'green', 'blue'];
   </div>
 </section>
 
+<script is:inline>
+  window.addEventListener('load', () => {
+    const container = document.querySelectorAll('.reviews-scroll');
+    console.log(container);
+    const reviews = document.querySelectorAll('.reviews-track li');
+    console.log(reviews);
+    if (container && reviews) {
+      const itemWidth = reviews[0].offsetWidth;
+      console.log(itemWidth);
+      console.log(itemWidth * 3);
+      console.log(container.scrollLeft, container.clientWidth);
+
+      container.scrollLeft += itemWidth * 3;
+    }
+  });
+</script>
+
 <style>
   section {
     /* padding-top: 8rem; */
@@ -73,6 +122,8 @@ const backgroundColors = ['teal', 'green', 'blue'];
     -ms-overflow-style: none; /* Internet Explorer 10+ */
     scrollbar-width: none; /* Firefox, Safari 18.2+, Chromium 121+ */
     padding: 0 2rem;
+
+    scroll-snap-type: x mandatory;
   }
 
   .reviews-scroll::-webkit-scrollbar {
@@ -88,6 +139,7 @@ const backgroundColors = ['teal', 'green', 'blue'];
 
   .reviews-track li {
     flex: 0 0 30%;
+    scroll-snap-align: center;
     /* width: 40%; */
     /* flex: 1; */
     /* min-width: 320px; */
