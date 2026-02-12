@@ -7,6 +7,7 @@ const reviews = defineCollection({
     rating: z.number().min(1).max(5),
     source: z.literal('google'),
     url: z.string(),
+    color: z.string(),
   }),
 });
 

@@ -1,12 +1,12 @@
 ---
 import IconStar from '@components/ui/icons/IconStar.astro';
-const { review, color } = Astro.props;
+const { review } = Astro.props;
 ---
 
 <a href={review.data.url} target="_blank" rel="noopener">
   <article
     class="review-card"
-    style={`background-color: var(--color-${color}-pastel);`}
+    style={`background-color: var(--color-${review.data.color}-pastel);`}
   >
     <div class="rating">
       {Array.from({ length: review.data.rating }, (_) => <IconStar />)}

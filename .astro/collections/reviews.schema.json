@@ -19,6 +19,9 @@
         "url": {
           "type": "string"
         },
+        "color": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }
@@ -27,7 +30,8 @@
         "author",
         "rating",
         "source",
-        "url"
+        "url",
+        "color"
       ],
       "additionalProperties": false
     }

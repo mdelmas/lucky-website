@@ -24,47 +24,32 @@ const backgroundColors = ['teal', 'green', 'blue'];
     <ul class="reviews-track">
       <!-- clone début -->
       {
-        reviews.slice(-4).map((review) => (
+        reviews.slice(-3).map((review) => (
           <li aria-hidden="true">
-            clone beginning
-            <ReviewCard
-              review={review}
-              color={
+            {/* clone beginning */}
+            <ReviewCard review={review} />
+            {/* 
+                          color={
                 backgroundColors[
                   Math.floor(Math.random() * backgroundColors.length)
                 ]
-              }
-            />
+              } */}
           </li>
         ))
       }
       {
         reviews.map((review) => (
           <li>
-            <ReviewCard
-              review={review}
-              color={
-                backgroundColors[
-                  Math.floor(Math.random() * backgroundColors.length)
-                ]
-              }
-            />
+            <ReviewCard review={review} />
           </li>
         ))
       }
       <!-- clone fin -->
       {
-        reviews.slice(0, 4).map((review) => (
+        reviews.slice(0, 3).map((review) => (
           <li aria-hidden="true">
-            clone end
-            <ReviewCard
-              review={review}
-              color={
-                backgroundColors[
-                  Math.floor(Math.random() * backgroundColors.length)
-                ]
-              }
-            />
+            {/* clone end */}
+            <ReviewCard review={review} />
           </li>
         ))
       }
@@ -85,18 +70,58 @@ const backgroundColors = ['teal', 'green', 'blue'];
 
 <script is:inline>
   window.addEventListener('load', () => {
-    const container = document.querySelectorAll('.reviews-scroll');
-    console.log(container);
-    const reviews = document.querySelectorAll('.reviews-track li');
-    console.log(reviews);
-    if (container && reviews) {
-      const itemWidth = reviews[0].offsetWidth;
-      console.log(itemWidth);
-      console.log(itemWidth * 3);
-      console.log(container.scrollLeft, container.clientWidth);
+    const container = document.querySelector('.reviews-scroll');
+    if (!container) return;
 
-      container.scrollLeft += itemWidth * 3;
-    }
+    const items = container.querySelectorAll('.reviews-track li');
+    if (!items.length) return;
+    console.log('items length', items.length);
+
+    const clonesCount = 3;
+    const reviewsCount = items.length - clonesCount * 2;
+    console.log('reviewsCount', reviewsCount);
+
+    requestAnimationFrame(() => {
+      const itemWidth = items[0].offsetWidth + 32;
+      // 32 = ton gap 2rem (2rem = 32px si 1rem = 16px)
+      // si tu veux être ultra propre on peut le calculer dynamiquement
+      // console.log('itemWidth:', itemWidth);
+
+      container.scrollLeft = itemWidth * clonesCount;
+
+      // 2️⃣ Auto scroll
+      setInterval(() => {
+        // console.log('scrollLeft = ', container.scrollLeft);
+        container.scrollBy({
+          left: itemWidth,
+          behavior: 'smooth',
+        });
+      }, 5000);
+
+      // // 3️⃣ Loop invisible
+      container.addEventListener('scroll', () => {
+        // console.log('in scroll scrollLeft = ', container.scrollLeft);
+        // console.log('in scroll itemWidth:', itemWidth);
+
+        const currentIndex = Math.round(container.scrollLeft / itemWidth);
+        // console.log('in scroll currentIndex:', currentIndex);
+
+        const maxScroll = container.scrollWidth - container.clientWidth;
+        // console.log('in scroll maxScroll:', maxScroll);
+
+        // trop à gauche
+        if (container.scrollLeft <= itemWidth) {
+          container.scrollLeft += itemWidth * reviewsCount;
+        }
+
+        // trop à droite
+        if (container.scrollLeft >= maxScroll - itemWidth) {
+          container.scrollLeft -= itemWidth * reviewsCount;
+        }
+
+        // console.log('in scroll scrollWidth = ', container.scrollWidth);
+      });
+    });
   });
 </script>
 
@@ -138,7 +163,9 @@ const backgroundColors = ['teal', 'green', 'blue'];
   }
 
   .reviews-track li {
-    flex: 0 0 30%;
+    /* flex: 0 0 30%; */
+    flex: 0 0 calc((100% - 4rem) / 3);
+
     scroll-snap-align: center;
     /* width: 40%; */
     /* flex: 1; */
