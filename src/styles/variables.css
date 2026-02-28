@@ -26,12 +26,15 @@
   --font-weight-black: 900;
 
   /* Font sizes */
+  /* Text font */
   --font-size-base: 16px;
   --font-size-text: 1rem;
   --font-size-large-text: 1.3rem;
-  --font-size-heading: 4rem;
-  --font-size-small-heading: 2rem;
-  --font-size-accent-text: 1rem;
+  /* Heading font */
+  --font-size-heading: 4rem; /* 64px */
+  --font-size-mobile-heading: 3rem; /* 48px */
+  --font-size-small-heading: 2rem; /* 32px */
+  --font-size-accent-text: 1rem; /* 16px */
 
   /* Font line height */
   --line-height-text: 1.5;

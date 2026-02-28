@@ -16,7 +16,7 @@ body {
   font-weight: var(--font-weight-light);
   line-height: var(--line-height-text);
 
-  background-color: var(--color-white);
+  background-color: var(--color-primary);
   color: var(--color-primary);
 }
 
@@ -33,7 +33,7 @@ body {
 }
 
 .heading {
-  font-size: var(--font-size-heading);
+  font-size: var(--font-size-mobile-heading);
   word-break: break-word;
 }
 
@@ -70,4 +70,10 @@ em {
 
 .list li::before {
   content: '•';
+}
+
+@media (min-width: 900px) {
+  .heading {
+    font-size: var(--font-size-heading);
+  }
 }

@@ -96,7 +96,7 @@ const backgroundColors = ['teal', 'green', 'blue'];
           left: itemWidth,
           behavior: 'smooth',
         });
-      }, 5000);
+      }, 8000);
 
       // // 3️⃣ Loop invisible
       container.addEventListener('scroll', () => {
@@ -133,6 +133,8 @@ const backgroundColors = ['teal', 'green', 'blue'];
     display: flex;
     flex-direction: column;
     gap: 6rem;
+
+    background-color: var(--color-white);
   }
 
   .title {
@@ -164,7 +166,7 @@ const backgroundColors = ['teal', 'green', 'blue'];
 
   .reviews-track li {
     /* flex: 0 0 30%; */
-    flex: 0 0 calc((100% - 4rem) / 3);
+    flex: 0 0 100%;
 
     scroll-snap-align: center;
     /* width: 40%; */
@@ -198,5 +200,11 @@ const backgroundColors = ['teal', 'green', 'blue'];
   .link-container {
     margin: 0 auto;
     width: fit-content;
+  }
+
+  @media (min-width: 900px) {
+    .reviews-track li {
+      flex: 0 0 calc((100% - 4rem) / 3);
+    }
   }
 </style>
